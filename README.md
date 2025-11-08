@@ -2,6 +2,12 @@
 
 A full-stack payroll management application built with React and Express, featuring employee management, payroll processing, and PDF generation capabilities.
 
+## Demo
+
+![Payrun Demo](./Demo.gif)
+
+*See Payrun in action - employee management, payroll processing, and PDF generation*
+
 ## Project Structure
 
 This is a monorepo containing both frontend and backend applications:
