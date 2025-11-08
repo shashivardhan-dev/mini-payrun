@@ -84,14 +84,6 @@ JWT_EXPIRES_IN=7d
 CORS_ORIGIN=http://localhost:3000
 ```
 
-#### Frontend Environment Variables (Optional)
-
-Create a `.env` file in the `web/` directory if you need custom API endpoints:
-
-```env
-REACT_APP_API_URL=http://localhost:3000
-```
-
 ### 4. Database Setup
 
 #### Initialize Prisma
