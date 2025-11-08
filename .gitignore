@@ -1,0 +1,17 @@
+/api/.env
+/api/node_modules
+
+
+/web/.parcel-cache/
+/web/dist/
+/web/node_modules/
+
+
+node_modules
+dist
+dist-ssr
+*.local
+
+.vscode/*
+
+

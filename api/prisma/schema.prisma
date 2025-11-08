@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum EmployeeType {
+  hourly
+}
+
+model Employee {
+  id             String       @id @default(uuid()) @db.Uuid
+  firstName      String
+  lastName       String
+  type           EmployeeType
+  baseHourlyRate Float
+  superRate      Float
+  bank           Json?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  timesheets Timesheet[]
+  payslips   Payslip[]
+
+  @@map("employees")
+}
+
+model Timesheet {
+  id          String   @id @default(uuid()) @db.Uuid
+  employeeId  String   @db.Uuid
+  periodStart DateTime
+  periodEnd   DateTime
+  allowances  Float    @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  employee Employee         @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  entries  TimesheetEntry[]
+
+  @@unique([employeeId, periodStart, periodEnd])
+  @@index([employeeId])
+  @@index([periodStart, periodEnd])
+  @@map("timesheets")
+}
+
+model TimesheetEntry {
+  id              String   @id @default(uuid()) @db.Uuid
+  timesheetId     String   @db.Uuid
+  date            DateTime
+  start           String
+  end             String
+  unpaidBreakMins Int
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  timesheet Timesheet @relation(fields: [timesheetId], references: [id], onDelete: Cascade)
+
+  @@index([timesheetId])
+  @@map("timesheet_entries")
+}
+
+model PayrunRequest {
+  id          String   @id @default(uuid()) @db.Uuid
+  periodStart DateTime
+  periodEnd   DateTime
+  employeeIds String[]  @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  payrun Payrun?
+
+  @@map("payrun_requests")
+}
+
+model Payrun {
+  id              String   @id @default(uuid()) @db.Uuid
+  payrunRequestId String   @unique @db.Uuid
+  periodStart     DateTime
+  periodEnd       DateTime
+  totals          Json
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  payrunRequest PayrunRequest @relation(fields: [payrunRequestId], references: [id], onDelete: Cascade)
+  payslips      Payslip[]
+
+  @@map("payruns")
+}
+
+model Payslip {
+  id            String   @id @default(uuid()) @db.Uuid
+  payrunId      String   @db.Uuid
+  employeeId    String    @db.Uuid
+  normalHours   Float
+  overtimeHours Float
+  gross         Float
+  tax           Float
+  super         Float
+  net           Float
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Restrict)
+  payrun   Payrun   @relation(fields: [payrunId], references: [id], onDelete: Cascade)
+
+  @@unique([payrunId, employeeId])
+  @@index([employeeId])
+  @@index([payrunId])
+  @@map("payslips")
+}

@@ -1,0 +1,226 @@
+.employees-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.employees-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.employees-title {
+  color: #111418;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.add-employee-btn {
+  min-width: 84px;
+  height: 2rem;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #f0f2f5;
+  color: #111418;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-employee-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.employees-table-container {
+  padding: 1rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  border: 1px solid #dbe0e6;
+  background-color: white;
+}
+
+.employees-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employees-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  color: #111418;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  background-color: white;
+}
+
+.employees-table th.actions-header {
+  color: #60738a;
+}
+
+.employees-table td {
+  height: 72px;
+  padding: 0.5rem 1rem;
+  color: #60738a;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  border-top: 1px solid #dbe0e6;
+}
+
+.employees-table tr:hover {
+  background-color: #f9fafb;
+  transition: background-color 0.2s ease;
+}
+
+.edit-btn,
+.timesheet-btn {
+  font-weight: bold;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #60738a;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.timesheet-btn {
+  margin-left: 0.5rem; /* Add some spacing between buttons */
+}
+
+.edit-btn:hover,
+.timesheet-btn:hover {
+  color: #111418;
+}
+
+.form-container {
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #dbe0e6;
+  padding: 2rem;
+}
+
+.form-header {
+  margin-bottom: 2rem;
+}
+
+.form-title {
+  color: #111418;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #111418;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.form-input {
+  padding: 0.625rem;
+  border: 1px solid #dbe0e6;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #111418;
+  background-color: white;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #111418;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: none;
+}
+
+.btn-cancel {
+  background-color: #f0f2f5;
+  color: #111418;
+}
+
+.btn-cancel:hover {
+  background-color: #e5e7eb;
+}
+
+.btn-save {
+  background-color: #111418;
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #1f2937;
+}
+
+.btn-save:disabled,
+.btn-cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error-message {
+  padding: 0.75rem;
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.api-error {
+  padding: 0.75rem;
+  background-color: #fef3c7;
+  color: #92400e;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #60738a;
+  font-size: 1rem;
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "employeeId": "31130a29-d5c8-4491-a6cc-8db8fe9a484e",
+    "periodStart": "2025-08-11",
+    "periodEnd": "2025-08-17",
+    "entries": [
+      {
+        "date": "2025-08-11",
+        "start": "09:00",
+        "end": "17:30",
+        "unpaidBreakMins": 30
+      },
+      {
+        "date": "2025-08-12",
+        "start": "09:00",
+        "end": "17:30",
+        "unpaidBreakMins": 30
+      },
+      {
+        "date": "2025-08-13",
+        "start": "09:00",
+        "end": "17:30",
+        "unpaidBreakMins": 30
+      },
+      {
+        "date": "2025-08-14",
+        "start": "09:00",
+        "end": "15:00",
+        "unpaidBreakMins": 30
+      },
+      {
+        "date": "2025-08-15",
+        "start": "10:00",
+        "end": "18:00",
+        "unpaidBreakMins": 30
+      }
+    ],
+    "allowances": 30.0
+  },
+  {
+    "employeeId": "8887c400-189a-4f3b-8459-837e72de7537",
+    "periodStart": "2025-08-11",
+    "periodEnd": "2025-08-17",
+    "entries": [
+      {
+        "date": "2025-08-11",
+        "start": "08:00",
+        "end": "18:00",
+        "unpaidBreakMins": 60
+      },
+      {
+        "date": "2025-08-12",
+        "start": "08:00",
+        "end": "18:00",
+        "unpaidBreakMins": 60
+      },
+      {
+        "date": "2025-08-13",
+        "start": "08:00",
+        "end": "18:00",
+        "unpaidBreakMins": 60
+      },
+      {
+        "date": "2025-08-14",
+        "start": "08:00",
+        "end": "18:00",
+        "unpaidBreakMins": 60
+      },
+      {
+        "date": "2025-08-15",
+        "start": "08:00",
+        "end": "18:00",
+        "unpaidBreakMins": 60
+      }
+    ],
+    "allowances": 0.0
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "mini-payrun",
+  "private": true,
+  "workspaces": [
+    "api",
+    "web"
+  ],
+"scripts": {
+    "dev": "concurrently \"npm run dev -w api\" \"npm run dev -w web\"",
+    "api:dev": "npm run dev -w api",
+    "web:dev": "npm run dev -w web",
+    "api:test": "npm run test -w api",
+    "api:lint": "npm run lint -w api",
+    "api:typecheck": "npm run typecheck -w api"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

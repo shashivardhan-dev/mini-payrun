@@ -1,0 +1,265 @@
+/* PayrunSummary.css */
+.payrunsummary-container {
+  padding: 2rem;
+  background-color: #f8fbff;
+  min-height: 100vh;
+}
+
+.payrunsummary-title {
+  color: #111418;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.payrunsummary-dropdown {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.75rem;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  outline: none;
+}
+
+.payrunsummary-dropdown:focus {
+  border-color: #0047ab;
+}
+
+.payrunsummary-totals {
+  border: 1px solid #d0d7de;
+  background-color: #f9fbfd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.totals-text {
+  color: #325072;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.payrunsummary-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.payrunsummary-table th,
+.payrunsummary-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  color: #111418;
+}
+
+.payrunsummary-table th {
+  font-weight: 600;
+  background-color: #f3f6f9;
+}
+
+.payrunsummary-table tr:last-child td {
+  border-bottom: none;
+}
+
+.payrunsummary-table th.actions-header {
+  color: #60738a;
+}
+
+.payslip-btn {
+  font-weight: bold;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #60738a;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.payslip-btn:hover {
+  color: #111418;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111418;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #60738a;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.close-btn:hover {
+  background-color: #f3f6f9;
+  color: #111418;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.payslip-section {
+  margin-bottom: 1.5rem;
+}
+
+.payslip-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111418;
+  margin: 0 0 0.5rem 0;
+}
+
+.pay-period {
+  color: #60738a;
+  font-size: 14px;
+  margin: 0;
+}
+
+.payslip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.payslip-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background-color: #f9fbfd;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.payslip-item.net-pay {
+  grid-column: 1 / -1;
+  background-color: #f0f7ff;
+  border-color: #0047ab;
+}
+
+.payslip-item .label {
+  color: #60738a;
+  font-size: 14px;
+}
+
+.payslip-item .value {
+  color: #111418;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.payslip-item.net-pay .value {
+  color: #0047ab;
+  font-size: 16px;
+}
+
+.bank-details-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
+
+.bank-details-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111418;
+  margin: 0 0 1rem 0;
+}
+
+.bank-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.bank-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background-color: #f9fbfd;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.bank-item .label {
+  color: #60738a;
+  font-size: 14px;
+}
+
+.bank-item .value {
+  color: #111418;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.modal-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.download-btn {
+  background-color: #0047ab;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+  background-color: #003a8c;
+}

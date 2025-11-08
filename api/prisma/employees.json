@@ -1,0 +1,20 @@
+[
+  {
+    "id": "31130a29-d5c8-4491-a6cc-8db8fe9a484e",
+    "firstName": "Alice",
+    "lastName": "Chen",
+    "type": "hourly",
+    "baseHourlyRate": 35.0,
+    "superRate": 11.5,
+    "bank": { "bsb": "083-123", "account": "12345678" }
+  },
+  {
+    "id": "8887c400-189a-4f3b-8459-837e72de7537",
+    "firstName": "Bob",
+    "lastName": "Singh",
+    "type": "hourly",
+    "baseHourlyRate": 48.0,
+    "superRate": 11.5,
+    "bank": { "bsb": "062-000", "account": "98765432" }
+  }
+]
