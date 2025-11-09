@@ -3,13 +3,14 @@ import db from '../lib/db';
 import { TimesheetSchema } from '../domain/types';
 import { handleError } from '../lib/errorHandler';
 import { z } from 'zod';
-
+import { recordError } from './metrics';
 export const timesheets = Router();
 
 timesheets.post('/', async (req: Request, res: Response) => {
   try {
     const parsed = TimesheetSchema.safeParse(req.body);
     if (!parsed.success) {
+      recordError(`Validation failed: ${z.treeifyError(parsed.error)}`);
       return res.status(400).json({
         error: 'Validation failed',
         details: z.flattenError(parsed.error),
@@ -22,6 +23,7 @@ timesheets.post('/', async (req: Request, res: Response) => {
     const endDate = data.periodEnd;
 
     if (startDate >= endDate) {
+      recordError('periodStart must be before periodEnd');
       return res.status(400).json({
         error: 'periodStart must be before periodEnd',
       });

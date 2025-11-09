@@ -6,6 +6,7 @@ import { handleError } from '../lib/errorHandler';
 import { v4 as uuidv4 } from 'uuid';
 import { z } from 'zod';
 import { EmployeeType } from '@prisma/client';
+import { recordError } from '../routes/metrics';
 
 export const payruns = Router();
 
@@ -20,7 +21,10 @@ payruns.get('/', async (_req: Request, res: Response) => {
         createdAt: 'desc',
       },
     });
-    if (!payruns) return res.status(404).json({ error: 'No payruns found' });
+    if (!payruns) {
+      recordError('No payruns found');
+      return res.status(404).json({ error: 'No payruns found' });
+    }
     return res.status(200).json(payruns);
   } catch (err: unknown) {
     return handleError(err, res);
@@ -32,11 +36,14 @@ payruns.get('/:id', async (req: Request, res: Response) => {
     const payruns = await db.payrun.findUnique({
       where: { id: req.params.id },
       select: {
-        payrunRequest: true, // return only payrunRequest data
+        payrunRequest: true,
       },
     });
 
-    if (!payruns) return res.status(404).json({ error: 'Payrun not found' });
+    if (!payruns) {
+      recordError('Payrun not found');
+      return res.status(404).json({ error: 'Payrun not found' });
+    }
 
     const employees = [];
 
@@ -72,6 +79,7 @@ payruns.post('/', async (req: Request, res: Response) => {
     const parsed = PayrunRequestSchema.safeParse(req.body);
 
     if (!parsed.success) {
+      recordError(`Validation failed: ${z.treeifyError(parsed.error)}`);
       return res.status(400).json({
         error: 'Validation failed',
         details: z.treeifyError(parsed.error),
@@ -90,6 +98,7 @@ payruns.post('/', async (req: Request, res: Response) => {
     }
 
     if (startDate >= endDate) {
+      recordError('periodStart must be before periodEnd');
       return res.status(400).json({
         error: 'periodStart must be before periodEnd',
       });
@@ -191,6 +200,7 @@ payruns.post('/', async (req: Request, res: Response) => {
     });
 
     if (result.status === 404) {
+      recordError('Payrun ran but no entries found');
       return res.status(404).json({
         error: 'Payrun ran but no entries found',
       });

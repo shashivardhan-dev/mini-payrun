@@ -48,12 +48,20 @@ Before you begin, ensure you have the following installed:
 - **npm** (v9 or higher)
 - **Database** (PostgreSQL)
 
+## Backend Status (GitHub Actions)
+
+| Workflow | Status |
+|---------|--------|
+| Backend Tests | ![CI](https://github.com/shashivardhan-dev/mini-payrun/actions/workflows/CI-CD.yml/badge.svg) |
+
+---
+
 ## Getting Started
 
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/shashivardhan-dev/mini-payrun.git
 cd payrun
 ```
 

@@ -3,5 +3,4 @@ import app from "./index.js";
 
 
 
-// AWS Lambda (Serverless)
 export const handler = serverlessExpress({ app });

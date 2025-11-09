@@ -4,6 +4,7 @@ import { EmployeeSchema } from '../domain/types';
 import { handleError } from '../lib/errorHandler';
 import { z } from 'zod';
 import { Prisma } from '@prisma/client';
+import { recordError } from './metrics';
 
 export const employees = Router();
 
@@ -25,6 +26,7 @@ employees.post('/', async (req: Request, res: Response) => {
   const parsed = EmployeeSchema.safeParse(req.body);
 
   if (!parsed.success) {
+    recordError(`Validation failed: ${z.treeifyError(parsed.error)}`);
     return res.status(400).json({
       error: 'Validation failed',
       details: z.flattenError(parsed.error),
@@ -65,6 +67,7 @@ employees.patch('/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
   const parsed = EmployeeSchema.partial().safeParse(req.body);
   if (!parsed.success) {
+    recordError(`Validation failed: ${z.treeifyError(parsed.error)}`);
     return res.status(400).json({
       error: 'Validation failed',
       details: z.flattenError(parsed.error),
