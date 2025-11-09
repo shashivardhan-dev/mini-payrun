@@ -52,7 +52,7 @@ Before you begin, ensure you have the following installed:
 
 | Workflow | Status |
 |---------|--------|
-| Backend Tests | ![CI](https://github.com/shashivardhan-dev/mini-payrun/actions/workflows/CI-CD.yml/badge.svg) |
+| Backend Tests | ![CI](https://github.com/shashivardhan-dev/mini-payrun/actions/workflows/deploy.yml/badge.svg) |
 
 ---
 
